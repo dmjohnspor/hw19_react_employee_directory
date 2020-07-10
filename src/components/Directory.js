@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import API from '../utils/API'
+import API from '../utils/API';
+import Moment from 'moment';
 import Jumbotron from './Jumbotron';
-import Table from './Table'
+import Table from './Table';
 import TableRow from './TableRow';
 
 
@@ -16,6 +17,11 @@ class Directory extends Component {
             .catch(err => console.log(err));
     }
 
+    formatDOB = dob => {
+        const newDOB = Moment(dob).format("LL");
+        return newDOB;
+    }
+
     render() {
         return (
             <>
@@ -28,7 +34,7 @@ class Directory extends Component {
                             name = {`${employee.name.first} ${employee.name.last}`}
                     phone={employee.cell}
                     email={employee.email}
-                    dob={employee.dob.date}
+                    dob={this.formatDOB(employee.dob.date)}
                     key={employee.id.value}
                 />
                     ))}
