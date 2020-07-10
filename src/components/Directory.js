@@ -4,12 +4,21 @@ import Moment from 'moment';
 import Jumbotron from './Jumbotron';
 import Table from './Table';
 import TableRow from './TableRow';
+import SearchBox from './SearchBox';
 
 
 class Directory extends Component {
     state = {
-        employees: []
+        employees: [],
+        search: ""
     }
+
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
 
     componentDidMount() {
         API.getEmployees()
@@ -25,7 +34,9 @@ class Directory extends Component {
     render() {
         return (
             <div className="container">
-                <Jumbotron />
+                <Jumbotron
+                    searchBox={<SearchBox onChange={this.handleInputChange} value={this.state.search} />}
+                />
                 <Table
                     tableRow=
                     {this.state.employees.map(employee => (

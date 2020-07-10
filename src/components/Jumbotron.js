@@ -1,9 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css'
-import SearchBox from './SearchBox';
 
-
-function Jumbotron() {
+function Jumbotron(props) {
     return (
         <div className="row">
             <div className="col s12">
@@ -13,7 +11,7 @@ function Jumbotron() {
                         <p>Narrow down your search by typing in the search box bellow</p>
                     </div>
                     <div className="card-action center-align">
-                        <SearchBox />
+                        {props.searchBox}
                     </div>
                 </div>
             </div>
