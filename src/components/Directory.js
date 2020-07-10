@@ -6,18 +6,21 @@ import Table from './Table';
 import TableRow from './TableRow';
 import SearchBox from './SearchBox';
 
-
 class Directory extends Component {
     state = {
         employees: [],
-        search: ""
+        filteredResult: [],
+        search: "",
+        filtered: false
     }
 
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
-            [name]: value
-        });
+            [name]: value,
+            filtered: true
+        })
+        this.filteredSearch();
     };
 
     componentDidMount() {
@@ -31,15 +34,42 @@ class Directory extends Component {
         return newDOB;
     }
 
+    filteredSearch = () => {
+        let { search, employees } = this.state;
+        let filteredResult = employees.filter(value => {
+            return (
+                value.name.first.toLowerCase().includes(search.toLowerCase()) ||
+                value.name.last.toLowerCase().includes(search.toLowerCase()) ||
+                value.email.toLowerCase().includes(search.toLowerCase())
+            );
+        });
+        this.setState({ filteredResult });
+    };
+
     render() {
         return (
             <div className="container">
                 <Jumbotron
                     searchBox={<SearchBox onChange={this.handleInputChange} value={this.state.search} />}
                 />
+                {!this.state.filtered ?
+                    <Table
+                        tableRow=
+                        {this.state.employees.map(employee => (
+                            <TableRow
+                                image=<img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
+                            name = {`${employee.name.first} ${employee.name.last}`}
+                        phone={employee.cell}
+                        email={employee.email}
+                        dob={this.formatDOB(employee.dob.date)}
+                        key={employee.id.value}
+                    />
+                    ))}
+                />
+                :
                 <Table
                     tableRow=
-                    {this.state.employees.map(employee => (
+                    {this.state.filteredResult.map(employee => (
                         <TableRow
                             image=<img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
                             name = {`${employee.name.first} ${employee.name.last}`}
@@ -50,6 +80,7 @@ class Directory extends Component {
                 />
                     ))}
                 />
+                }
             </div>
         )
     }
