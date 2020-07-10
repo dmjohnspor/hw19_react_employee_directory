@@ -24,8 +24,8 @@ class Directory extends Component {
 
     render() {
         return (
-            <>
-                <Jumbotron />,
+            <div className="container">
+                <Jumbotron />
                 <Table
                     tableRow=
                     {this.state.employees.map(employee => (
@@ -39,7 +39,7 @@ class Directory extends Component {
                 />
                     ))}
                 />
-            </>
+            </div>
         )
     }
 }
