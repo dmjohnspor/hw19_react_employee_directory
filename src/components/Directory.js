@@ -1,10 +1,10 @@
 import React from 'react';
+import Jumbotron from './Jumbotron';
+
 
 function Directory() {
     return (
-        <div>
-            This is the main directory
-        </div>
+        <Jumbotron />
     )
 }
 
