@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import API from '../utils/API'
 import Jumbotron from './Jumbotron';
 import Table from './Table'
+import TableRow from './TableRow';
 
 
 class Directory extends Component {
@@ -19,7 +20,19 @@ class Directory extends Component {
         return (
             <>
                 <Jumbotron />,
-                <Table />
+                <Table
+                    tableRow=
+                    {this.state.employees.map(employee => (
+                        <TableRow
+                            image=<img src={employee.picture.thumbnail} alt={`${employee.name.first} ${employee.name.last}`} />
+                            name = {`${employee.name.first} ${employee.name.last}`}
+                    phone={employee.cell}
+                    email={employee.email}
+                    dob={employee.dob.date}
+                    key={employee.id.value}
+                />
+                    ))}
+                />
             </>
         )
     }

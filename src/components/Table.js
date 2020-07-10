@@ -15,13 +15,7 @@ function Table(props) {
             </thead>
 
             <tbody>
-                <tr>
-                    <td>{props.image}</td>
-                    <td>{props.name}</td>
-                    <td>{props.phone}</td>
-                    <td>{props.email}</td>
-                    <td>{props.dob}</td>
-                </tr>
+                {props.tableRow}
             </tbody>
         </table>
     )
