@@ -1,11 +1,9 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import TableRow from './TableRow';
-import employee from '../mockData.json';
-function Table() {
-    console.log(employee);
+
+function Table(props) {
     return (
-        <table className="striped">
+        <table className="striped" >
             <thead>
                 <tr>
                     <th>Image</th>
@@ -17,13 +15,13 @@ function Table() {
             </thead>
 
             <tbody>
-                <TableRow
-                    image= <img src={employee.results[0].picture.thumbnail} alt={`${employee.results[0].name.first} ${employee.results[0].name.last}`}/>
-                    name={`${employee.results[0].name.first} ${employee.results[0].name.last}`}
-                    phone={employee.results[0].cell}
-                    email={employee.results[0].email}
-                dob={employee.results[0].dob.date}
-                />
+                <tr>
+                    <td>{props.image}</td>
+                    <td>{props.name}</td>
+                    <td>{props.phone}</td>
+                    <td>{props.email}</td>
+                    <td>{props.dob}</td>
+                </tr>
             </tbody>
         </table>
     )
