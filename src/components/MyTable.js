@@ -1,7 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 
-function Table(props) {
+function MyTable(props) {
     return (
         <table className="striped" >
             <thead>
@@ -21,4 +21,4 @@ function Table(props) {
     )
 };
 
-export default Table;
+export default MyTable;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 import Moment from 'moment';
 import Jumbotron from './Jumbotron';
-import Table from './Table';
+import MyTable from './MyTable';
 import TableRow from './TableRow';
 import SearchBox from './SearchBox';
 
@@ -53,7 +53,7 @@ class Directory extends Component {
                     searchBox={<SearchBox onChange={this.handleInputChange} value={this.state.search} />}
                 />
                 {!this.state.filtered ?
-                    <Table
+                    <MyTable
                         tableRow=
                         {this.state.employees.map(employee => (
                             <TableRow
@@ -67,7 +67,7 @@ class Directory extends Component {
                     ))}
                 />
                 :
-                <Table
+                <MyTable
                     tableRow=
                     {this.state.filteredResult.map(employee => (
                         <TableRow
