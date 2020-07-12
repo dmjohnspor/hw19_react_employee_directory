@@ -1,23 +1,31 @@
 import React from 'react';
-import 'materialize-css/dist/css/materialize.min.css'
+import { Typography, Card, CardContent } from '@material-ui/core/';
+import { makeStyles } from '@material-ui/core/styles';
 
 
-function Jumbotron(props) {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        minHeight: 128,
+        background: '#2196f3'
+    }
+}));
+
+export default function Jumbotron() {
+    const classes = useStyles();
+
     return (
-        <div className="row">
-            <div className="col s12">
-                <div className="card blue-grey darken-1">
-                    <div className="card-content white-text center-align">
-                        <h2>Employee Directory</h2>
-                        <p>Narrow down your search by typing in the box bellow</p>
-                    </div>
-                    <div className="card-action center-align">
-                        {props.searchBox}
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-};
-
-export default Jumbotron;
+        <Card className={classes.root} raised='true'>
+            <CardContent>
+                <Typography variant='h2' align='center'>
+                    Employee Directory
+                    </Typography>
+                <Typography variant='subtitle1' align='center'>
+                    Limit your search by typing in the search box.
+                    </Typography>
+                <Typography variant='subtitle1' align='center'>
+                    Sort results by clicking on any of the headers.
+                    </Typography>
+            </CardContent>
+        </Card>
+    );
+}

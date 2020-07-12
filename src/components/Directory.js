@@ -4,7 +4,7 @@ import SmartTable from './Material-table';
 
 function Directory() {
     return (
-        <div className="container">
+        <div className='container'>
             <Jumbotron />
             <SmartTable />
         </div>

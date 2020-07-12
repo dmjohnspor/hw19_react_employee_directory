@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { forwardRef } from 'react';
 import Grid from '@material-ui/core/Grid'
-import Moment from 'moment';
 
 import MaterialTable from "material-table";
 import AddBox from '@material-ui/icons/AddBox';
@@ -19,8 +18,10 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import axios from 'axios'
 import Alert from '@material-ui/lab/Alert';
+
+import axios from 'axios'
+import Moment from 'moment';
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -47,11 +48,11 @@ const api = axios.create({
 })
 
 function SmartTable() {
-
     let columns = [
         { title: "id", field: "id.value", hidden: true },
         {
-            title: "Image", field: "picture.thumbnail", render: rowData => <img src={rowData.picture.thumbnail} style={{ borderRadius: "50%" }} alt={rowData.name.first} />
+            title: "Image", field: "picture.thumbnail",
+            render: rowData => <img src={rowData.picture.thumbnail} style={{ borderRadius: "50%" }} alt={rowData.name.first} />
         },
         { title: "Fisrt Name", field: "name.first" },
         { title: "Last Name", field: "name.last" },
@@ -91,6 +92,13 @@ function SmartTable() {
                         columns={columns}
                         data={data}
                         icons={tableIcons}
+                        options={{
+                            headerStyle: {
+                                backgroundColor: '#2196f3'
+                            },
+                            rowStyle: rowData => (rowData.tableData.id % 2 === 0) ? { backgroundColor: '#90caf9' } : { backgroundColor: '#e3f2fd' }
+                            // rowStyle: rowData => console.log(rowData.tableData.id)
+                        }}
                     />
                 </Grid>
                 <Grid item xs={3}></Grid>
