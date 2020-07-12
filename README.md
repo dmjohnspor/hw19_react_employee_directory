@@ -12,10 +12,13 @@
 
 - [Available Scripts](#scripts)
 - [Demo](#demo)
-- [Tests](#tests)
+- [Usage](#usage)
+- [Technologies](#tech)
 - [Contributing](#contributing)
 - [Support](#support)
 - [License](#license)
+
+---
 
 <a name="scripts"/>
 
@@ -68,6 +71,8 @@ See the app live <a href="https://directory-by-giannis.herokuapp.com/" target="_
 ![](assets/demo_gif_1.gif)
 
 ---
+<a name="usage"/>
+
 ## Usage
 
 - Search your employees' contact info.
@@ -76,8 +81,9 @@ See the app live <a href="https://directory-by-giannis.herokuapp.com/" target="_
 - Complete information, including avatars. 
 
 ---
+<a name="tech"/>
 
-## Tests
+## Technologies included
 
 This app was made using the following technologies:
 - <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>
@@ -90,6 +96,7 @@ This app was made using the following technologies:
 - <a href="https://reactrouter.com/web/guides/quick-start" target="_blank">React Router Dom</a>
 
 ---
+<a name="contributing"/>
 
 ## Contributing
 
@@ -112,6 +119,7 @@ This app was made using the following technologies:
 - 🔃 Create a new pull request using `https://github.com/dmjohnspor/hw19_react_employee_directory/compare/`
 
 ---
+<a name="support"/>
 
 ## Support
 
@@ -123,6 +131,7 @@ Reach out to me at one of the following places!
 
 
 ---
+<a name="license"/>
 
 ## License
 
