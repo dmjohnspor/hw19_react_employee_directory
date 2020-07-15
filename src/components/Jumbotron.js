@@ -10,11 +10,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Jumbotron() {
+export default function Jumbotron(props) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root} raised='true'>
+        <Card className={classes.root}>
             <CardContent>
                 <Typography variant='h2' align='center'>
                     Employee Directory
@@ -25,6 +25,7 @@ export default function Jumbotron() {
                 <Typography variant='subtitle1' align='center'>
                     Sort results by clicking on any of the headers.
                     </Typography>
+                {props.searchBox}
             </CardContent>
         </Card>
     );
